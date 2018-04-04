@@ -8,11 +8,11 @@ repositories {
     }
 }
 
-def zipDoc = file(buildDir.name + "/libs/$project.name-$version" + '.zip')
+/* def zipDoc = file(buildDir.name + "/libs/$project.name-$version" + '.zip')
 
 artifacts {
   archives zipDoc
-}
+} */
 
 //build.finalizedBy(uploadArchives)
 
