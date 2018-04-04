@@ -8,7 +8,7 @@ repositories {
     }
 }
 
-def zipDoc = file(buildDir.name + "/distributions/$project.name-$version" + '.zip')
+def zipDoc = file(buildDir.name + "/libs/$project.name-$version" + '.zip')
 
 artifacts {
   archives zipDoc
@@ -17,7 +17,7 @@ artifacts {
 //build.finalizedBy(uploadArchives)
 
 task zipDocuments(type: Zip) {
-    from ('C:\\Example\\') {
+    from ('C:\\Example\\Release3.7\\files\\validation\\libRGrid\\build\\') {
     }
     
 }
