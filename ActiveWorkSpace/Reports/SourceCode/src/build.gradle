@@ -1,0 +1,35 @@
+apply plugin: 'maven'
+group = 'com.awc'
+version = '2.0.1'
+
+repositories {
+    maven {
+        url "http://localhost:8081/repository/maven-public/"
+    }
+}
+
+def zipDoc = file(buildDir.name + "/distributions/$project.name-$version" + '.zip')
+
+artifacts {
+  archives zipDoc
+}
+
+//build.finalizedBy(uploadArchives)
+
+task zipDocuments(type: Zip) {
+    from ('C:\\Example\\') {
+    }
+    
+}
+
+//task for Sonatype Nexus OSS
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(
+                    url: "http://localhost:8081/repository/maven-releases/") {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+        }
+    }
+}
